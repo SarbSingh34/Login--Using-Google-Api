@@ -13,22 +13,13 @@ if(isset($_GET["code"]))
 
  $token = $google_client->fetchAccessTokenWithAuthCode($_GET["code"]);
 
-
  if(!isset($token['error']))
  {
- 
   $google_client->setAccessToken($token['access_token']);
-
  
   $_SESSION['access_token'] = $token['access_token'];
-
- 
-
-
-
   $google_service = new Google_Service_Oauth2($google_client);
 
- 
   $data = $google_service->userinfo->get();
 
  
@@ -63,13 +54,13 @@ if(isset($_GET["code"]))
 if(!isset($_SESSION['access_token']))
 {
 
- $login_button = '<a href="'.$google_client->createAuthUrl().'">Login With Google</a>';
+ $login_button = '<a href="'.$google_client->createAuthUrl().'"> Login With Google </a>';
 }
 
 ?>
 <html>
  <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
   <title>PHP Login using Google Account</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -83,12 +74,12 @@ if(!isset($_SESSION['access_token']))
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
- 
- </head>
+
+</head>
  <body>
   <div class="container">
    <br />
-   <h2 align="center">PHP Login using Google Account</h2>
+   <h2 style = "text-align:center">  PHP Login using Google Account </h2>
    <br />
    <div class="panel panel-default">
    <?php
